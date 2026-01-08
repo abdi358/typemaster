@@ -656,7 +656,7 @@
         // Logout handler
         document.getElementById('logoutBtn')?.addEventListener('click', async function (e) {
             e.preventDefault();
-            await fetch('/typingTest/api/auth.php?action=logout', { method: 'POST' });
+            await fetch('/api/auth.php?action=logout', { method: 'POST' });
             window.location.href = 'login.php';
         });
 
@@ -683,7 +683,7 @@
         async function loadProfile() {
             try {
                 // Check auth first
-                const authResponse = await fetch('/typingTest/api/auth.php?action=check');
+                const authResponse = await fetch('/api/auth.php?action=check');
                 const authData = await authResponse.json();
 
                 if (!authData.success || !authData.authenticated) {
@@ -710,7 +710,7 @@
                 }
 
                 // Fetch full profile
-                const profileResponse = await fetch('/typingTest/api/auth.php?action=profile');
+                const profileResponse = await fetch('/api/auth.php?action=profile');
                 const profileData = await profileResponse.json();
 
                 if (!profileData.success) {
@@ -718,7 +718,7 @@
                 }
 
                 // Fetch stats
-                const statsResponse = await fetch('/typingTest/api/auth.php?action=stats');
+                const statsResponse = await fetch('/api/auth.php?action=stats');
                 const statsData = await statsResponse.json();
 
                 // Hide loading, show content

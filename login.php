@@ -279,7 +279,7 @@
             const password = document.getElementById('password').value;
 
             try {
-                const response = await fetch('/typingTest/api/auth.php?action=login', {
+                const response = await fetch('/api/auth.php?action=login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password })
@@ -313,7 +313,7 @@
         // Check if already logged in
         (async () => {
             try {
-                const response = await fetch('/typingTest/api/auth.php?action=check');
+                const response = await fetch('/api/auth.php?action=check');
                 const data = await response.json();
 
                 if (data.authenticated) {

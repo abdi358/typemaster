@@ -4,11 +4,12 @@
  * PDO-based secure database connection with error handling
  */
 
-// Database configuration
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'typemaster_db');
-define('DB_USER', 'root');
-define('DB_PASS', ''); // Default XAMPP has no password
+// Database configuration - supports Railway environment variables with local fallbacks
+define('DB_HOST', getenv('MYSQLHOST') ?: getenv('MYSQL_HOST') ?: 'localhost');
+define('DB_PORT', getenv('MYSQLPORT') ?: getenv('MYSQL_PORT') ?: '3306');
+define('DB_NAME', getenv('MYSQLDATABASE') ?: getenv('MYSQL_DATABASE') ?: 'typemaster_db');
+define('DB_USER', getenv('MYSQLUSER') ?: getenv('MYSQL_USER') ?: 'root');
+define('DB_PASS', getenv('MYSQLPASSWORD') ?: getenv('MYSQL_PASSWORD') ?: '');
 define('DB_CHARSET', 'utf8mb4');
 
 /**
@@ -20,7 +21,7 @@ function getDBConnection()
     static $pdo = null;
 
     if ($pdo === null) {
-        $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+        $dsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
 
         $options = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

@@ -382,7 +382,7 @@
 
             // Fetch stats from API
             try {
-                const response = await fetch('/typingTest/api/auth.php?action=stats');
+                const response = await fetch('/api/auth.php?action=stats');
                 const data = await response.json();
 
                 if (data.success) {

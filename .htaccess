@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# Redirect to HTTPS (Railway handles this)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Handle front controller pattern
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# API routing - strip .php extension
+RewriteRule ^api/([^/]+)$ api/$1.php [L,QSA]
+
+# Error handling
+ErrorDocument 404 /index.php

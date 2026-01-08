@@ -19,7 +19,7 @@
 // ============================================
 
 const CONFIG = {
-    API_BASE: '/typingTest/api',
+    API_BASE: '/api',
     WORD_LENGTH_AVERAGE: 5, // Standard for WPM calculation
     METRICS_INTERVAL: 1000, // Update metrics every second
     SOUNDS: {

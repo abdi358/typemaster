@@ -458,7 +458,7 @@
             const email = document.getElementById('email').value;
 
             try {
-                const response = await fetch('/typingTest/api/auth.php?action=register', {
+                const response = await fetch('/api/auth.php?action=register', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, email, password })
@@ -493,7 +493,7 @@
         // Check if already logged in
         (async () => {
             try {
-                const response = await fetch('/typingTest/api/auth.php?action=check');
+                const response = await fetch('/api/auth.php?action=check');
                 const data = await response.json();
 
                 if (data.authenticated) {
