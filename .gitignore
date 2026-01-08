@@ -1,0 +1,29 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.zip
+temp_icons/
+rinaz_temp/
+
+# Logs
+*.log
+error_log
+
+# Build artifacts
+.gemini/

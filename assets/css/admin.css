@@ -1,0 +1,228 @@
+/* Admin Panel Styles */
+:root {
+    --admin-sidebar-width: 260px;
+    --admin-header-height: 70px;
+
+    /* Admin Colors */
+    --admin-bg: #f8fafc;
+    --admin-surface: #ffffff;
+    --admin-border: #e2e8f0;
+    --admin-text: #0f172a;
+    --admin-text-light: #64748b;
+
+    /* Status Colors */
+    --status-active: #22c55e;
+    --status-banned: #ef4444;
+    --status-admin: #6366f1;
+}
+
+[data-theme="dark"] {
+    --admin-bg: #0f172a;
+    --admin-surface: #1e293b;
+    --admin-border: #334155;
+    --admin-text: #f8fafc;
+    --admin-text-light: #94a3b8;
+}
+
+body.admin-body {
+    background: var(--admin-bg);
+    color: var(--admin-text);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: var(--admin-sidebar-width);
+    background: var(--admin-surface);
+    border-right: 1px solid var(--admin-border);
+    position: fixed;
+    height: 100vh;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.sidebar-logo {
+    font-size: 1.5rem;
+}
+
+.sidebar-title {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--admin-text);
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.nav-item {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    color: var(--admin-text-light);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background: var(--primary-500);
+    color: white;
+}
+
+.nav-item.danger:hover {
+    background: var(--error-500);
+}
+
+/* Main Content */
+.admin-main {
+    flex: 1;
+    margin-left: var(--admin-sidebar-width);
+    padding: 2rem;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.page-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--admin-text-light);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Data Tables */
+.data-table-container {
+    background: var(--admin-surface);
+    border: 1px solid var(--admin-border);
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    border-bottom: 1px solid var(--admin-border);
+}
+
+.data-table th {
+    background: var(--bg-elevated);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--admin-text-light);
+    font-weight: 600;
+}
+
+.data-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Badges */
+.badge {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 9999px;
+    font-weight: 600;
+}
+
+.badge-admin {
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--primary-500);
+}
+
+.badge-user {
+    background: rgba(148, 163, 184, 0.1);
+    color: var(--admin-text-light);
+}
+
+.badge-banned {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--error-500);
+}
+
+.badge-active {
+    background: rgba(34, 197, 94, 0.1);
+    color: var(--success-500);
+}
+
+/* Forms */
+.admin-form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    background: var(--admin-surface);
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 1px solid var(--admin-border);
+}
+
+.form-input {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--admin-border);
+    background: var(--bg-base);
+    color: var(--admin-text);
+    flex: 1;
+}
+
+/* Section Views */
+.section-view {
+    display: none;
+}
+
+.section-view.active {
+    display: block;
+}
