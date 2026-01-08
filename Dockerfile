@@ -23,9 +23,5 @@ RUN chown -R www-data:www-data /var/www/html
 # Expose port (Railway uses PORT env var)
 EXPOSE 80
 
-# Copy and set permissions for start script
-COPY docker-start.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/docker-start.sh
-
-# Start using the script
-CMD ["/usr/local/bin/docker-start.sh"]
+# Start Apache directly - using shell form to allow variable expansion
+CMD sed -i "s/80/$PORT/g" /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf && apache2-foreground
